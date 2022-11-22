@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\ReceitasController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,6 +15,12 @@ Route::get ('/', function(){
 })->name('page.index');
 
 route::get('/receitas',[ReceitasController::class, 'index'])->name('receitas.index');
+
+// ROTAS DE USUÁRIO
+Route::get('/users',[UserController::class, 'index'])->name('users.index');
+Route::get('/users/{id}',[UserController::class,'show'])->name('users.show');
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
