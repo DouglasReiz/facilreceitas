@@ -1,6 +1,6 @@
 @extends('template.index')
 @section('title', 'Listagem de Usuários')
-@section('Body')
+@section('body')
 
 <div class="aling-center pt-4">
     <div class="text-black-600 text-5xl pb-4 text-center">
@@ -33,3 +33,5 @@
         </table>
     </div>
 </div>
+
+@endsection

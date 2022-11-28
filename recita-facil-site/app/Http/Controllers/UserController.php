@@ -12,13 +12,28 @@ class UserController extends Controller
         $this->model = $user;
     }
 
-    public function index(){
+    public function index()
+    {
         $users = User::all();
 
         return view('users.index', compact('users'));
     }
 
-    public function Show($id){
-        dd();
+    public function Show($id)
+    {
+        if(!$user = User::find($id))
+            return redirect()->back();
+
+        return view('users.show', compact('user'));
+    }
+
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    public function store()
+    {
+        
     }
 }
