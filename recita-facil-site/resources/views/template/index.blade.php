@@ -25,8 +25,9 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
-    
+                        <div class="mt-5">
                             <h1>Receita Fácil</h1>
+                        </div>    
                 
                             @if (Route::has('login'))
                                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
