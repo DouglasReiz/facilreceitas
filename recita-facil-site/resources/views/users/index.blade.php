@@ -7,26 +7,26 @@
         <h1>Listagem de Usuários</h1>
     </div>
     <div class="pl-60">
-        <table class="table-auto border-separate border">
+        <table class="table-fixed border-separate border-spacing-y-3">
             <thead>
-                <tr class="aling-center">
-                    <th class="border" scope="col">ID</th>
-                    <th class="border" scope="col">Nome</th>
-                    <th class="border" scope="col">Email</th>
-                    <th class="border" scope="col">Telefone</th>
-                    <th class="border" scope="col">Is admin</th>
-                    <th class="border" scope="col">Ações</th>
+                <tr class="bg-white shadow-lg rounded-md">
+                    <th class="p-4" scope="col">ID</th>
+                    <th class="p-4" scope="col">Nome</th>
+                    <th class="p-4" scope="col">Email</th>
+                    <th class="p-4" scope="col">Telefone</th>
+                    <th class="p-4" scope="col">Is admin</th>
+                    <th class="p-4" scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
-                <tr >
-                    <th class="border" scope="row">{{ $user->id }}</th>
-                    <td class="flex-start border">{{ $user->name }}</td>
-                    <td class="text-start border">{{ $user->email }}</td>
-                    <td class="flex-start border">{{ $user->phone }}</td>
-                    <td class="text-center border">{{ $user->is_admin }}</td>
-                    <td class="border"><a href="{{ route('users.show', $user->id)}}">Vizualizar</a> Editar</td>
+                <tr onclick="window.location='{{ route('users.show', $user->id) }}'" class="table-row shadow-lg rounded-md bg-white hover:bg-gray-300 cursor-pointer">
+                    <th class="text-center pr-4" scope="row">{{ $user->id }}</th>
+                    <td class="text-center pr-4">{{ $user->name }}</td>
+                    <td class="text-center pr-4">{{ $user->email }}</td>
+                    <td class="text-center pr-4">{{ $user->phone }}</td>
+                    <td class="text-center pr-4">{{ $user->is_admin }}</td>
+                    <td class="btn-alert mr-1"><a href="{{ route('users.show', $user->id)}}">Editar</a></td>
                 </tr>
                 @endforeach
             </tbody>
