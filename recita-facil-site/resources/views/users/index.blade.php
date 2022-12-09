@@ -26,7 +26,15 @@
                     <td class="text-center pr-4">{{ $user->email }}</td>
                     <td class="text-center pr-4">{{ $user->phone }}</td>
                     <td class="text-center pr-4">{{ $user->is_admin }}</td>
-                    <td class="btn-alert mr-1"><a href="{{ route('users.show', $user->id)}}">Editar</a></td>
+                    <td class="btn-alert mr-1">
+                        <form action="{{ route('users.delete', $user->id) }}" method="POST" class="inline">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn-danger mx-4">
+                                Deletar
+                            </button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
