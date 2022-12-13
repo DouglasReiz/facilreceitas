@@ -9,7 +9,7 @@
     <div class="pl-60">
         <table class="table-fixed border-separate border-spacing-y-3">
             <thead>
-                <tr class="bg-white shadow-lg rounded-md">
+                <tr class="bg-orange-600 shadow-lg rounded-md">
                     <th class="p-4" scope="col">ID</th>
                     <th class="p-4" scope="col">Nome</th>
                     <th class="p-4" scope="col">Email</th>
@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 @foreach($users as $user)
-                <tr onclick="window.location='{{ route('users.show', $user->id) }}'" class="table-row shadow-lg rounded-md bg-white hover:bg-gray-300 cursor-pointer">
+                <tr onclick="window.location='{{ route('users.show', $user->id) }}'" class="table-row shadow-lg rounded-md bg-orange-500 hover:bg-white cursor-pointer">
                     <th class="text-center pr-4" scope="row">{{ $user->id }}</th>
                     <td class="text-center pr-4">{{ $user->name }}</td>
                     <td class="text-center pr-4">{{ $user->email }}</td>

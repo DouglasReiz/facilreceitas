@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\ReceitasController;
+use App\Http\Controllers\RecipesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +27,14 @@ Route::post('/users', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{id}',[UserController::class, 'delete'])->name('users.delete');
 Route::get('/users/{id}',[UserController::class,'show'])->name('users.show');
 
+// ROTAS DE RECEITAS
+Route::get('/receitas', [RecipesController::class, 'index'])->name('recipes.index');
+Route::get('/receitas/create', [RecipesController::class, 'create'])->name('recipes.create');
+Route::post('/receitas', [RecipesController::class, 'store'])->name('recipes.store');
 
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return view('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
