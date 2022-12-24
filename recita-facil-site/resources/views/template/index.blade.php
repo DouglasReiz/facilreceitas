@@ -18,7 +18,7 @@
         
     </head>
     
-    <body class="font-sans antialiased space-y-2">
+    <body class="font-sans antialiased space-y-2 bg-gray-300">
 
         <header class="bg-gray-400 font-sans leading-normal tracking-normal pb-7 mb-12">
             <nav class="flex items-center justify-between flex-wrap bg-orange-600 p-5 fixed w-full z-10 top-0 pr-10">
@@ -88,11 +88,10 @@
 
         </header>
         
-        <div class="place-content-center py-5 bg-gray-300 max-w-full max-h-full">
+        <div class="place-content-center py-5 max-w-full max-h-full">
             @yield('body')
 
         </div>
-
         <footer class="p-2 bg-white sm:p-6 dark:bg-orange-600">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
@@ -165,6 +164,7 @@
                 </div>
             </div>
         </footer>
+
         
 
 

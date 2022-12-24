@@ -13,7 +13,7 @@ class UpdateRecipesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,21 @@ class UpdateRecipesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'name' => 'string|max:100|min:3',
+            'difficulty' => 'string|max:50',
+            'ingredients' => 'string|min:3',
+            'preparation' => 'string|min:3',
+            'preparation_second' => 'string|min:3',
+            'preparation_time' => 'string|min:3',
+            'portions' => 'string|min:3|max:20',
+            'image' => 'file|mimes:jpeg,jpg,png,svg',
         ];
+
+        if ($this->method() == 'PUT') {
+            $rules['image'] = 'nullable|file|mimes:jpeg,jpg,png,svg';
+        }
+
+        return $rules;
     }
 }

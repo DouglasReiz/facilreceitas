@@ -14,6 +14,7 @@ class Recipes extends Model
         'difficulty',
         'ingredients',
         'preparation',
+        'preparation_second',
         'preparation_time',
         'portions',
         'image'

@@ -28,9 +28,10 @@ class StoreRecipesRequest extends FormRequest
             'difficulty' => 'required|string|max:50',
             'ingredients' => 'required|string|min:3',
             'preparation' => 'required|string|min:3',
+            'preparation_second' => 'string|min:3',
             'preparation_time' => 'required|string|min:3',
             'portions' => 'required|string|min:3|max:20',
-            'image' => 'file|mimes:jpeg,jpg,png,jfif',
+            'image' => 'file|mimes:jpeg,jpg,png,svg',
         ];
 
         return $rules;

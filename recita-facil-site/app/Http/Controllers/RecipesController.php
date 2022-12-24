@@ -46,7 +46,7 @@ class RecipesController extends Controller
     {
         $data = $request->all();
         $file = $request['image'];
-        $path = $file->store('profile', 'public');
+        $path = $file->store('recipes', 'public');
         $data['image'] = $path;
 
         $this->model->create($data);
@@ -60,9 +60,12 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipes  $recipes
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipes $recipes)
+    public function show(Recipes $recipes, $id)
     {
-        
+        if(!$recipes = $this->model->find($id))
+            return redirect()->back();
+
+        return view('recipes.show', compact('recipes'));
     }
 
     /**
@@ -71,9 +74,12 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipes  $recipes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipes $recipes)
+    public function edit(Recipes $recipes, $id)
     {
-        //
+        if (!$recipes = $this->model->find($id))
+            return redirect()->back();
+
+        return view('recipes.edit', compact('recipes'));
     }
 
     /**
@@ -83,9 +89,21 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipes  $recipes
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRecipesRequest $request, Recipes $recipes)
+    public function update(UpdateRecipesRequest $request, $id)
     {
-        //
+        if (!$recipes = $this->model->find($id))
+            return redirect()->back();
+
+            $data = $request->all();
+            if ($request->image){
+                $file = $request['image'];
+                $path = $file->store('recipes', 'public');
+                $data['image'] = $path;
+            }
+            
+            $recipes->update($data);
+
+            return redirect()->route('recipes.index');
     }
 
     /**
@@ -94,8 +112,13 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipes  $recipes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipes $recipes)
+    public function delete(Recipes $recipes, $id)
     {
-        //
+        if (!$recipes = $this->model->find($id))
+            return redirect()->back();
+
+        $recipes->delete();
+
+        return redirect()->route('recipes.index');
     }
 }

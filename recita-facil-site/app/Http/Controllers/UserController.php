@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function Show($id)
     {
-        if(!$user = User::find($id))
+        if(!$user = $this->model->find($id))
             return redirect()->back();
 
         return view('users.show', compact('user'));
