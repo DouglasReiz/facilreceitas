@@ -25,25 +25,6 @@
         </div>
     </div>
 
-    <div class="flex justify-center">
-        <div class="bg-white shadow-lg relative flex justify-center rounded-lg w-full my-8">
-            <div class="flex mx-auto my-2">
-                @if (Auth::user()->is_admin)
-                <a href=" {{route('recipes.edit', $recipes->id ) }} " class="btn-alert mr-1 pr-4">
-                    Editar
-                </a>
-                <form action=" {{route('recipes.delete', $recipes->id ) }} " method="POST" class="inline pl-4">
-                    @csrf
-                    @method("DELETE")
-                    <button type="submit" class="btn-danger">
-                        Deletar
-                    </button>
-                </form>
-            </div>
-
-            <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
-            @endif
-        </div>
-    </div>
+    
 </div>
 @endsection
