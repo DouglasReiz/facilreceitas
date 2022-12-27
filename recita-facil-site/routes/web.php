@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-
 use App\Http\Controllers\ReceitasController;
 use App\Http\Controllers\RecipesController;
 use App\Http\Controllers\UserController;

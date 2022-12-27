@@ -2,7 +2,7 @@
 @section('title', 'Listagem de Usuários')
 @section('body')
 
-<div class="aling-center pt-4">
+<div class="grid aling-center pt-4">
     <div class="text-black-600 text-5xl pb-4 text-center">
         <h1>Listagem de Usuários</h1>
     </div>

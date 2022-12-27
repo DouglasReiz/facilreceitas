@@ -35,7 +35,7 @@ class UpdateRecipesRequest extends FormRequest
         ];
 
         if ($this->method() == 'PUT') {
-            $rules['image'] = 'nullable|file|mimes:jpeg,jpg,png,svg';
+            
         }
 
         return $rules;

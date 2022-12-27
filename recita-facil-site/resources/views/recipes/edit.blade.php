@@ -4,7 +4,9 @@
 
 <div class="grid justify-items-center">
 
-    
+<div class="text-orange-600 text-4xl py-4 text-center">
+            <h1>Editar Receita</h1>
+        </div>
     
     <form method="POST" action="{{ route('recipes.update', $recipes->id) }}">
         @method("PUT")
@@ -57,7 +59,7 @@
             </div>
 
             <div class="mt-4">
-                <label for="image" class="block font-medium text-sm text-gray-700">Imagem</label>
+                <label for="image" class="block font-medium text-sm text-gray-200">Imagem</label>
         
                 <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-700 focus:outline-none dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image">
             </div>
@@ -65,7 +67,7 @@
 
             <div class="flex items-center justify-end mt-4">
                     <x-button class="ml-4">
-                        {{ __('Editar Usuário') }}
+                        {{ __('Editar Receita') }}
                     </x-button>
                 </div>
             </div>
