@@ -23,6 +23,8 @@ class UpdateRecipesRequest extends FormRequest
      */
     public function rules()
     {
+        
+
         $rules = [
             'name' => 'string|max:100|min:3',
             'difficulty' => 'string|max:50',
