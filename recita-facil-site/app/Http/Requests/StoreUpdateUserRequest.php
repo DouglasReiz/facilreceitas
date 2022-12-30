@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUpdateUserRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class StoreUpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,17 +26,25 @@ class StoreUpdateUserRequest extends FormRequest
     public function rules()
     {
         $id = $this->id ?? '';
+        
         $rules = [
-            'name' => 'required|string|max:50|min:3',
+            'name' => [
+                'string', 
+                'max:255'
+            ],
             'email' => [
-                'required',
-                'email',
-                'unique:users,email,{$id},id',
+                'email', 
+                'max:255',
+                "unique:users,email,{$id},id",
+            ],
+            'image' => [
+                'nullable',
+                'file',
+                'mimes:jpeg,jpg,png,svg',
             ],
             'phone'=>[
                 'nullable',
-                'phone',
-                'unique:users,phone,{$id},id',
+                
             ],
             'password' => [
                 'required',
@@ -43,7 +53,7 @@ class StoreUpdateUserRequest extends FormRequest
             ],
         ];
 
-        if($this->method('PUT'))
+        if($this->method()== 'PUT')
         {
             $rules['password'] =[
                 'nullable',

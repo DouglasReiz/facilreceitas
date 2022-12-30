@@ -9,7 +9,7 @@
             <h1>Criar Receitas</h1>
         </div>
 
-        <form action=" {{ route('users.store')}} " method="POST" enctype="multipart/form-data">
+        <form action=" {{ route('users.store')}} " method="POST" enctype="multipart/form-data" enctype="multipart/form-data">
             @csrf
 
             <!-- Name -->

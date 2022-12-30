@@ -4,7 +4,7 @@
 
 
 <div class="aling-center ">
-    <div class="text-black-600 text-5xl pb-4 text-center">
+    <div class="text-orange-600 text-5xl pb-4 text-center">
         <h1>Receitas</h1>
     </div>
     <div class="flex justify-center mt-8 mx-48 gap-10 flex-wrap">

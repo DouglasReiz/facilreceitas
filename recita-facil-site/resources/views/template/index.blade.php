@@ -20,7 +20,7 @@
     
     <body class="font-sans antialiased space-y-2 bg-fixed bg-cover bg-no-repeat bg-[url('https://cdn.wizard.com.br/wp-content/uploads/2021/02/19121320/culinaria-mexicana-receitas-em-espanhol-wizard-idiomas.jpg')]">
 
-        <header class="bg-gray-400 font-sans leading-normal tracking-normal pb-7 mb-12">
+        <header class="bg-gray-400 font-sans leading-normal tracking-normal pb-16 mb-12">
             <nav class="flex items-center justify-between flex-wrap bg-orange-600 p-5 fixed w-full z-10 top-0 pr-10">
                 <div class="flex items-center flex-shrink-0 text-white mr-6">
 
@@ -56,15 +56,28 @@
 
                         
                         <li class="mr-3">
-                            <a href="{{route('profile.edit')}}" class="inline-block text-Black-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">{{ Auth::user()->name }}</a>
+                        
+                            <a href="{{route('profile.edit')}}" class="inline-block text-Black-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Meu perfil</a>
+                            
                         </li>
                         
                         <li class="mr-3">
                             <form method="POST" action="{{ route('logout') }}">
                               @csrf
+
+                                @if (auth()->user()->image)
+                                @auth
                               
-                              <a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Sign out</a>
-                              
+                                <a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">
+                                    <img src=" {{ asset('storage/'.auth()->user()->image) }}" width="50px" height="50px" class="rounded-full" alt="log-out">
+                                </a>
+                            
+                                @else
+                                <a href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">
+                                    <img src=" {{ asset('storage/profile/avatar.jpg') }} " width="50px" height="50px" class="rounded-full" alt="log-out">
+                                </a>               
+                                @endauth
+                                @endif
                             </form>
                         </li>
 
@@ -102,27 +115,16 @@
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-black">Resources</h2>
-                        <ul class="text-gray-600 dark:text-gray-200">
-                            <li class="mb-4">
-                                <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
-                            </li>
-                            <li class="mb-4">
-                                <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
-                            </li>
-                            <li>
-                                <a href="https://laravel.com/" class="hover:underline">Laravel</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
                         <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-black">Follow us</h2>
                         <ul class="text-gray-600 dark:text-gray-200">
                             <li class="mb-4">
                                 <a href="https://instagram.com/receitaa.facil?igshid=YmMyMTA2M2Y=" class="hover:underline ">Instagram</a>
                             </li>
-                            <li>
+                            <li class="mb-4">
                                 <a href="https://www.facebook.com/receitafacilcasalfranca/" class="hover:underline">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://receitafaciljl.wixsite.com/nossaloja" class="hover:underline">Loja</a>
                             </li>
                         </ul>
                     </div>

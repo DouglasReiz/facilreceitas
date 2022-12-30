@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceitasController;
 use App\Http\Controllers\RecipesController;
@@ -46,3 +47,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
+Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);

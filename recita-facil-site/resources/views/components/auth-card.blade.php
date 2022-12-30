@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-fixed bg-cover bg-no-repeat bg-[url('https://cdn.wizard.com.br/wp-content/uploads/2021/02/19121320/culinaria-mexicana-receitas-em-espanhol-wizard-idiomas.jpg')]">
     <div>
         {{ $logo }}
     </div>

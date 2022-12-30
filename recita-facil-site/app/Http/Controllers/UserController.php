@@ -39,6 +39,12 @@ class UserController extends Controller
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
 
+        if ($request->image){
+            $file = $request['image'];
+            $path = $file->store('profile', 'public');
+            $data['image'] = $path;
+        }
+
         $this->model->create($data);
 
         return redirect()->route('users.index');
@@ -57,9 +63,18 @@ class UserController extends Controller
         if(!$user = $this->model->find($id))
             return redirect()->back();
 
-        $data = $request->only('name', 'email', 'phone');
+        $data = $request->only('name', 'email');
         if ($request->password)
             $data['password'] = bcrypt($request->password);
+
+        if($request->image){
+            $file = $request['image'];
+            $path = $file->store('profile', 'public');
+            $data['image']= $path;
+        }
+
+        $data['is_admin'] = $request->admin? 1 : 0;
+
         $user->update($data);
 
         return redirect()->route('users.index');

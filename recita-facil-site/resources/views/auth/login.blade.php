@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-40 h-40 fill-current text-gray-500" />
+                <x-application-logo class="w-40 h-40 fill-current text-gray-500 bg-orange-600 px-2 rounded-lg" />
             </a>
         </x-slot>
 
@@ -55,6 +55,11 @@
                 <x-primary-button class="ml-3">
                     {{ __('Log in') }}
                 </x-primary-button>
+
+                <a href="{{ url('auth/google') }}" style="margin-top: 0px !important;background: rgb(255, 255, 255);color: #ffffff;padding: 5px;border-radius:7px;" class="ml-2">
+                    <x-google-login-logo-button class="w-10 h-10 fill-current" />
+                </a>
+
             </div>
         </form>
     </x-auth-card>

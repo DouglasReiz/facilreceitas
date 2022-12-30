@@ -8,7 +8,7 @@
             <h1>Editar Receita</h1>
         </div>
     
-    <form method="POST" action="{{ route('recipes.update', $recipes->id) }}">
+    <form method="POST" action="{{ route('recipes.update', $recipes->id) }}" enctype="multipart/form-data">
         @method("PUT")
             @csrf
 
